@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+
+# production
+/default
+/outlined
+/round
+/sharp
+/twotone
+
+# misc
+.DS_Store
+

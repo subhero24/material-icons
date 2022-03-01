@@ -1,0 +1,35 @@
+{
+	"name": "material-icons",
+	"version": "1.0.0",
+	"description": "Material icons as react components",
+	"main": "default/index.cjs.js",
+	"types": "default/index.d.ts",
+	"module": "default/index.js",
+	"source": "source/default.js",
+	"scripts": {
+		"lint": "eslint source --max-warnings 0",
+		"clean": "rm -rf ./default && rm -rf ./outlined && rm -rf ./round && rm -rf ./sharp && rm -rf ./twotone",
+		"build_default_main": "esbuild source/default.js --outfile=default/index.cjs.js --bundle --format=cjs --minify --external:react",
+		"build_default_module": "esbuild source/default.js --outfile=default/index.js --bundle --format=esm --minify --external:react",
+		"build_default": "npm run build_default_main && npm run build_default_module",
+		"build_outlined": "esbuild source/outlined.js --outfile=outlined/index.js --bundle --format=esm --minify --external:react",
+		"build_round": "esbuild source/round.js --outfile=round/index.js --bundle --format=esm --minify --external:react",
+		"build_sharp": "esbuild source/sharp.js --outfile=sharp/index.js --bundle --format=esm --minify --external:react",
+		"build_twotone": "esbuild source/twotone.js --outfile=twotone/index.js --bundle --format=esm --minify --external:react",
+		"build": "npm run clean && npm run build_default && npm run build_outlined && npm run build_round && npm run build_sharp && npm run build_twotone && cp source/default.d.ts default/index.d.ts",
+		"prepare": "npm run build"
+	},
+	"keywords": [],
+	"author": "Bruno Van Damme",
+	"license": "ISC",
+	"devDependencies": {
+		"@svgr/core": "^6.2.1",
+		"@svgr/plugin-jsx": "^6.2.1",
+		"@svgr/plugin-svgo": "^6.2.0",
+		"camelcase": "^6.3.0",
+		"esbuild": "^0.14.23",
+		"fs-extra": "^10.0.1",
+		"node-fetch": "^3.2.0",
+		"zip-unzip-promise": "^2.1.1"
+	}
+}
